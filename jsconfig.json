@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@api/*": ["api/*"],
+      "@images/*": ["assets/images/*"],
+      "@components/*": ["components/*"],
+      "@questCreation/*": ["components/questCreation/*"],
+      "@stepCreation/*": ["components/questCreation/stepCreation/*"],
+      "@reducers/*": ["store/reducers/*"],
+      "@actions/*": ["store/actions/*"],
+      "@pages/*": ["pages/*"],
+      "@/*": ["*"]
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+    "common": {
+        "restore_password":"Pass recovery",
+        "authorization": "Authorization",
+        "change_password": "Change password",
+        "confirm_password": "Confirm password",
+        "copyright": "Questy © 2023 | All Rights Reserved",
+        "edit": "edit",
+        "error": "Request processing error",
+        "go_back": "back",
+        "have_account": "I have an account",
+        "hello": "Hello",
+        "new_password": "New password",
+        "no_account": "No account ",
+        "panel": "Panel",
+        "profile": "Profile",
+        "registration": "Registration",
+        "save": "save",
+        "scan_code": "Scan code",
+        "sign_in": "Sign in",
+        "sign_out": "Sign out",
+        "sign_up": "Sign up",
+        "your_email": "Your email",
+        "password": "Password",
+        "user_email": "Your email",
+        "user_lastname": "Last name",
+        "user_name": "Name",
+        "user_nickname": "Nickname",
+        "help": "Help",
+        "forgot_password": "Restore password"
+    },
+    "home": {
+        "go_to_panel": "to panel",
+        "need_to_login": "To use an app, register or log in to your account.",
+        "nice_to_meet_you": "Welcome to",
+        "sign_up": "Sign up",
+        "success_login": "You are successfully logged in!<br/> Go to the panel to get started.",
+        "intro_title": "Platform for creating<br/>online quests",
+        "intro_text1": "Flexible tasks settings",
+        "intro_text2": "How does it work?",
+        "intro_task1": "Text",
+        "intro_task2": "Images",
+        "intro_task3": "Audio",
+        "intro_task4": "QR code",
+        "intro_step1": "Create a quest description",
+        "intro_step2": "Choose a theme",
+        "intro_step3": "Add tasks",
+        "intro_step4": "Share the quest with a friend"
+    },
+    "quests": {
+        "can_send_again": "Can be sent again",
+        "cancel": "Cancel",
+        "complete_quest": "Complete",
+        "congratulations_quest_complete": "Congratulations on completing the quest!",
+        "continue_quest": "Continue the quest",
+        "create_new_quest": "Create a quest",
+        "delete_quest_hint1": "Are you sure you want to delete the quest",
+        "delete_quest_hint2": "This action will permanently delete the quest",
+        "friends_email": "Email",
+        "friends_name": "Friend's name",
+        "from": "From ",
+        "incorrect_email": "Incorrect email",
+        "next": "Next",
+        "possible_multi_send": "Can be sent to different emails",
+        "prev": "Prev",
+        "quest_execution": "Quest",
+        "quest_successfuly_send": "Quest was mailed successfully",
+        "quests": {
+            "my": "My quests",
+            "available": "Available quests",
+            "archive": "Аrchive",
+            "questy_constructor": "Quest constructor Questy",
+            "view_avaible": "Quests from your friends.",
+            "view_completed": "View all completed quests.",
+            "view_created": "View created quests.",
+            "no_available": "We're sorry, you don't have any quests available!",
+            "no_created": "You don`t have created quests",
+            "no_completed": "We're sorry, you haven't any completed quests."
+        },
+        "remove": "Delete",
+        "return_back": "Back",
+        "scan_code": "Scan code",
+        "send": "Send",
+        "send_quest": "Submit the quest:",
+        "send_quest_hint": "Enter the name and email of your friend to send the quest to the mail.",
+        "sent_to_emails": "Sent to email:",
+        "start_quest": "Start quest",
+        "status": {
+            "status": "Status",
+            "complete": "completed",
+            "inprogress": "in progress",
+            "not_started": "not started"
+        },
+        "submit_answer": "Submit",
+        "your_answer": "Your answer",
+        "Вы ответили верно!": "You answered correctly!",
+        "Ответ неверный, попробуйте снова": "Wrong answer, please try again"
+    },
+    "profile": {
+        "change_password": "Change password",
+        "edit": "Edit",
+        "my_profile": "My profile",
+        "user_email": "Your email",
+        "user_lastname": "Last name",
+        "user_name": "Name",
+        "save": "Save",
+        "user_nickname": "Nickname"
+    },
+    "qrSteps": {
+        "answers": "Correct answer options",
+        "answers_hint": "For example: an egg,eggs,egg",
+        "audio_task": {
+            "answers_hint": "For example: strangers in the night, strangers",
+            "question": "Audio task",
+            "creation": "Create<br/> audio<br/> task",
+            "hint": "For example: What is the melody in the recording? (maximum 255 characters)"
+        },
+        "file_size_exceed": "The file size exceeds the maximum value of 5 MB",
+        "img_task": {
+            "question": "Image task",
+            "answers_hint": "For example: home alone, alone home",
+            "creation": "Create<br/>an image<br/> task",
+            "hint": "For example: Which film is the picture from? (maximum 255 characters)"
+        },
+        "mb": "MB",
+        "qr_task": {
+            "question": "QR-code task",
+            "creation": "Create<br/> a QR code<br/> task ",
+            "hint": "For example: Scan the QR code (maximum 255 characters)",
+            "create_qr_code": "Generate QR code ",
+            "save_qr_hint": "Click on the QR code to save it.",
+            "enter_qr_hint": "For example: You are such a nice person, thank you for scanning this code (maximum 255 characters)",
+            "enter_qr_string": "Enter a string to generate a QR code"
+        },
+        "select_file": "Select a file",
+        "step_creation": "Step creation",
+        "task_desc": "Task description",
+        "task_name": "Task name",
+        "text_task": {
+            "question": "Text task",
+            "creation": "Create<br/> a text<br/> task",
+            "desc_hint": "For example: What has to be broken before you can use it ? (maximum 255 characters)",
+            "hint": "For example: Guess the riddle (maximum 255 characters)"
+        },
+        "upload_file": "upload"
+    },
+    "createQuest": {
+        "coupon": {
+            "added": "Coupon was added!",
+            "no_added": "You haven't created a coupon yet:",
+            "edit": "Edit coupon",
+            "create": "Create coupon"
+        },
+        "create_step": "create a step",
+        "current_theme": "Сurrent theme:",
+        "edit": "Edit",
+        "final_message": {
+            "message": "Message to the recipient",
+            "hint": "The recipient will see this message after completing the quest",
+            "tooltip": "keep the message",
+            "create": "Leave a message and create a coupon for the recipient:"
+        },
+        "no_steps_added": "You haven`t added any steps to this quest yet =(",
+        "quest": {
+            "quest": "quest",
+            "creation": "Quest creation",
+            "name": "Quest name",
+            "name_hint": "The name of the quest will be visible in the list of quests",
+            "description": "Quest description",
+            "description_hint": "Displayed before completing the quest",
+            "preview_hint": "How will the recipient see it?",
+            "profile": "Quest profile",
+            "steps": "Quest steps:"
+        },
+        "save": "Save",
+        "back": "Back",
+        "save_hint1": "Click to commit all changes",
+        "save_hint2": "Once a quest has been submitted, it cannot be edited.",
+        "set_theme": "Make your quest unique"
+    },
+    "createSteps": {
+        "save": "Save",
+        "answers": "Correct answer options",
+        "answers_hint": "For example: an egg,eggs,egg",
+        "audio_task": {
+            "answers_hint": "For example: strangers in the night, strangers",
+            "question": "Audio task",
+            "creation": "Create<br/> audio<br/> task",
+            "hint": "For example: What is the melody in the recording? (maximum 255 characters)"
+        },
+        "file_size_exceed": "The file size exceeds the maximum value of 5 MB",
+        "img_task": {
+            "question": "Image task",
+            "answers_hint": "For example: home alone, alone home",
+            "creation": "Create<br/>an image<br/> task",
+            "hint": "For example: Which film is the picture from? (maximum 255 characters)"
+        },
+        "mb": "MB",
+        "qr_task": {
+            "question": "QR-code task",
+            "creation": "Create<br/> a QR code<br/> task ",
+            "hint": "For example: Scan the QR code (maximum 255 characters)",
+            "create_qr_code": "Generate QR code ",
+            "save_qr_hint": "Click on the QR code to save it.",
+            "enter_qr_hint": "For example: You are such a nice person, thank you for scanning this code (maximum 255 characters)",
+            "enter_qr_string": "Enter a string to generate a QR code"
+        },
+        "select_file": "Select a file",
+        "upload": "Upload",
+        "step_creation": "Step creation",
+        "task_desc": "Task description",
+        "task_name": "Task name",
+        "text_task": {
+            "question": "Text task",
+            "creation": "Create<br/> a text<br/> task",
+            "desc_hint": "For example: What has to be broken before you can use it ? (maximum 255 characters)",
+            "hint": "For example: Guess the riddle (maximum 255 characters)"
+        },
+        "upload_file": "upload"
+    },
+    "coupon": {
+        "coupon": {
+            "text": "Specify coupon text",
+            "text_hint": "Maximum 33 characters allowed",
+            "promocode": "Promo code",
+            "promocode_hint": "Maximum 13 characters allowed"
+        },
+        "save": "Save"
+    },
+    "breadcrumbs": {
+        "archive": "Archive",
+        "audio_task": "Audio task",
+        "available_quests": "Available quests",
+        "chande_password": "Change password",
+        "create_quest": "Create quest",
+        "create_step": "Create step",
+        "error_404": "Error 404",
+        "home": "Home",
+        "img_task": "Img task",
+        "my_quests": "My quests",
+        "panel": "Panel",
+        "profile": "Profile",
+        "qr_task": "QR task",
+        "quest_info": "About quest",
+        "quest_profile": "Quest profile",
+        "registration": "Registration",
+        "restore_password": "Pass recovery",
+        "sign_in": "Sign in",
+        "text_task": "Text question"
+    }
+}

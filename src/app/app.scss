@@ -1,0 +1,162 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: inherit;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+#root {
+  height: inherit;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: inherit;
+  background: #ffffff;
+}
+
+.title {
+  width: 100%;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  margin-top: 25px;
+  margin-bottom: 35px;
+
+  @media (max-width: 600px) {
+    font-size: 22px;
+    margin-top: 47px;
+  }
+}
+
+.newTitle {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.3;
+  color: #1D1B20;
+  margin-bottom: 32px;
+
+  @media (max-width: 960px) {
+    font-size: 3.1vw;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 25px;
+    text-align: center;
+  }
+}
+
+.subtitle {
+  text-align: center;
+  color: gray;
+  font-size: 25px;
+  text-transform: uppercase;
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+}
+
+.welcomeTitle {
+  width: 100%;
+  color: black;
+  text-align: center;
+  //text-transform: uppercase;
+  font-size: 35px;
+  margin-top: 50px;
+
+  @media (max-width: 600px) {
+    font-size: 22px;
+    margin-top: 50px;
+  }
+}
+
+.logoBox {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 50px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+
+  img {
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+
+    @media (max-width: 600px) {
+      width: 260px;
+    }
+  }
+}
+
+.nameOfService {
+  width: 100%;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+
+  @media (max-width: 600px) {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+}
+
+.welcomeText {
+  align-self: center;
+  text-align: center;
+  max-width: 500px;
+  font-size: 23px;
+  margin-bottom: 50px;
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+.textToRightSide {
+  text-align: right;
+  margin-bottom: 50px;
+
+  @media (max-width: 600px) {
+    margin-bottom: 30px;
+  }
+}
+
+.avatar-logo {
+  width: 98px;
+  height: 98px;
+  text-align: center;
+  background: #FFFFFF;
+  border-radius: 50%;
+  text-transform: uppercase;
+  margin: 10px auto 40px;
+  display: block;
+}

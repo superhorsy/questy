@@ -1,0 +1,79 @@
+.decoratedPage {
+  position: relative;
+  min-height: calc(100vh - 120px);
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1536px;
+  // @media(max-width: 1536px) {
+  //   min-height: calc(100vh - 70px);
+  // }
+  &__stikerTopLeft {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media(max-width: 1535px) {
+      width: 16.7vw;
+      height: auto;
+    }
+  }
+
+  &__stikerTopLeftRotaded {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-11deg);
+    @media(max-width: 1535px) {
+      width: 16.7vw;
+      height: auto;
+    }
+  }
+
+  &__stikerBottomRight {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    @media(max-width: 1535px) {
+      width: 34vw;
+      height: auto;
+      bottom: -20px;
+    }
+    @media(max-width: 900px) {
+      bottom: -45px;
+    }
+    @media(max-width: 600px) {
+      bottom: -10px;
+    }
+  }
+  &__stikerTopRight {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @media(max-width: 1000px) {
+      width: 12.8vw;
+      height: auto;
+    }
+  }
+  &__stikerBottomLeft {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 300px;
+    @media(max-width: 1535px) {
+      width: 16.7vw;
+      height: auto;
+      left: 10vw;
+      bottom: -60px;
+    }
+    @media(max-width: 900px) {
+      bottom: -20px;
+    }
+    @media(max-width: 600px) {
+      bottom: 0;
+      left: 1vw;
+    }
+  }
+}
