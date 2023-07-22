@@ -14,8 +14,6 @@ Questy.fun is an interactive quest constructor written with GoLang Serverless fu
 ## TODOs
 
 - [ ] Use Clerk for auth
-- [ ] Remove login page
-- [ ] Fix images loading
 - [ ] Protect Routes
 - [ ] Lazy Load in AppRouter
 - [ ] Refactor birthday.js
@@ -23,6 +21,8 @@ Questy.fun is an interactive quest constructor written with GoLang Serverless fu
 - [ ] Fix QR Code Reader
 - [ ] Fix Language Switch
 - [ ] Add Loaders
+- [x] Remove login page
+- [x] Fix images loading
 - [x] Fix Quest Execution
 - [x] Add GO Backend via Serverless Functions
 - [x] Move Media Upload to use CDN

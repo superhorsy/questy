@@ -3,7 +3,7 @@ import {
   fetchUserProfile,
   updateUserProfile,
   changePassword,
-} from "../actions/actions";
+} from "@actions/actions";
 
 const initialState = {
   profile: null,

@@ -14,7 +14,7 @@ import {
 import { Logout, Settings } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import Image from 'next/image';
@@ -28,10 +28,6 @@ export const Header = () => {
   const t = useTranslations("common");
 
   const router = useRouter()
-  let path = usePathname();
-
-  const [isStartPage, setIsStartPage] = useState(true);
-
   const [anchorElUser, setAnchorElUser] = useState(false);
   const dispatch = useDispatch();
 
@@ -51,7 +47,7 @@ export const Header = () => {
 
   const handleLogout = () => {
     dispatch(logOut());
-    router.push("/signin");
+    router.push("/");
     handleCloseUserMenu();
   };
 
@@ -98,9 +94,6 @@ export const Header = () => {
       icon: <Logout />,
     },
   ];
-  useEffect(() => {
-    setIsStartPage(path === "/")
-  }, [path]);
 
   useEffect(() => {
     if (isAuth) {
@@ -114,8 +107,8 @@ export const Header = () => {
         color="header"
         sx={{
           boxShadow: "0px -1px 65px rgba(30, 109, 186, 0.1)",
-          position: isStartPage ? "fixed" : "sticky",
-          top: isStartPage ? "-64px" : 0
+          position: "sticky",
+          top: 0
         }}
       >
         <Box sx={{ maxWidth: "960px", width: "100%", margin: "0 auto", p: " 0 30px", boxSizing: "border-box" }}>

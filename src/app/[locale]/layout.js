@@ -1,7 +1,6 @@
 import { AppThemeProvider } from "@/themes/provider";
 import { ErrorWindow } from "@components/ErrorWindow/ErrorWindow.jsx";
 import { Footer } from "@components/Footer/Footer.jsx";
-import { Header } from "@components/Header/Header.jsx";
 import { NextAppDirEmotionCacheProvider } from "tss-react/next/appDir";
 import { Providers } from "@/store/provider";
 
@@ -30,14 +29,13 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       {/* It's important to keep a head tag, even if it's empty */}
-      <head></head>
+      {/*<head></head>*/}
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <NextAppDirEmotionCacheProvider options={{ key: "css" }}>
               <AppThemeProvider>
                   <div className="App">
-                    <Header />
                     {children}
                     <ErrorWindow />
                     <Footer />
