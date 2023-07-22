@@ -54,10 +54,14 @@ func get(w http.ResponseWriter, r *http.Request) {
 		helpers.HandleError(ctx, w, err)
 		return
 	}
-	// add static host
-	med.Link = fmt.Sprintf(os.Getenv("STATIC_STORAGE_TEMPLATE"), med.Link)
+
+	med.Link = getFullLink(med.Link)
 
 	helpers.HandleResponse(ctx, w, med)
+}
+
+func getFullLink(relativeLink string) string {
+	return fmt.Sprintf("https://%s/%s", os.Getenv("STATIC_DOMAIN"), relativeLink)
 }
 
 func upload(w http.ResponseWriter, r *http.Request) {
@@ -108,7 +112,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	mediaRecord, err := m.UploadFile(ctx, file, header.Filename, t)
+	med, err := m.UploadFile(ctx, file, header.Filename, t)
 	if err != nil {
 		logging.From(ctx).Error("failed to upload file to storage", zap.Error(err))
 		helpers.HandleError(ctx, w, errors.ErrInvalidRequest.Wrap(err))
@@ -116,9 +120,9 @@ func upload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// add static host
-	mediaRecord.Link = fmt.Sprintf(os.Getenv("STATIC_STORAGE_TEMPLATE"), mediaRecord.Link)
+	med.Link = getFullLink(med.Link)
 
-	helpers.HandleResponse(ctx, w, mediaRecord)
+	helpers.HandleResponse(ctx, w, med)
 }
 
 func validate(header multipart.FileHeader, mediaType model.MediaType) error {
