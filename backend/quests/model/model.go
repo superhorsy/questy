@@ -182,9 +182,7 @@ type QuestLine struct {
 
 func (ql *QuestLine) CheckIfAnswerCorrect(answer Answer) bool {
 	for _, correctAnswer := range *ql.List.Head.Value.AnswerContent {
-		if strings.TrimSpace(strings.ToLower(answer.Answer)) == strings.TrimSpace(strings.ToLower(correctAnswer)) {
-			return true
-		}
+		return strings.EqualFold(answer.Answer, correctAnswer)
 	}
 	return false
 }

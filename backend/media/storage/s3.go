@@ -34,6 +34,10 @@ func NewS3Storage() *S3Storage {
 }
 
 func (s *S3Storage) GetLink(objectKeyId string) (string, error) {
+	return objectKeyId, nil
+}
+
+func (s *S3Storage) GetPresignedURL(objectKeyId string) (string, error) {
 	svc, err := s.getSession()
 	if err != nil {
 		fmt.Println("Failed to create AWS session:", err)

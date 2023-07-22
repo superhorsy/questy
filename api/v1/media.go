@@ -1,4 +1,4 @@
-package media
+package handler
 
 import (
 	"fmt"
@@ -16,10 +16,48 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
-func Upload(w http.ResponseWriter, r *http.Request) {
-	middleware.AuthHandler(middleware.JsonResponse(http.HandlerFunc(upload))).ServeHTTP(w, r)
+func Media(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodGet {
+		middleware.AuthHandler(middleware.JsonResponse(http.HandlerFunc(get))).ServeHTTP(w, r)
+	}
+	if r.Method == http.MethodPost {
+		middleware.AuthHandler(middleware.JsonResponse(http.HandlerFunc(upload))).ServeHTTP(w, r)
+
+	}
+}
+
+func get(w http.ResponseWriter, r *http.Request) {
+	ctx := r.Context()
+	db, err := sqlx.Connect("postgres", os.Getenv("DSN"))
+	if err != nil {
+		logging.From(ctx).Error("failed to init db", zap.Error(err))
+		helpers.HandleError(ctx, w, err)
+		return
+	}
+	defer db.Close()
+
+	// Split the URL path by slashes
+	pathSegments := strings.Split(r.URL.Path, "/")
+	// The ID should be the last segment
+	id := pathSegments[len(pathSegments)-1]
+
+	s := storage.NewS3Storage()
+	// Storage for static content
+	m := media.New(store.New(db), s)
+
+	med, err := m.GetMedia(ctx, id)
+	if err != nil {
+		logging.From(ctx).Error("failed to fetch media", zap.Error(err))
+		helpers.HandleError(ctx, w, err)
+		return
+	}
+	// add static host
+	med.Link = fmt.Sprintf(os.Getenv("STATIC_STORAGE_TEMPLATE"), med.Link)
+
+	helpers.HandleResponse(ctx, w, med)
 }
 
 func upload(w http.ResponseWriter, r *http.Request) {
@@ -76,6 +114,10 @@ func upload(w http.ResponseWriter, r *http.Request) {
 		helpers.HandleError(ctx, w, errors.ErrInvalidRequest.Wrap(err))
 		return
 	}
+
+	// add static host
+	mediaRecord.Link = fmt.Sprintf(os.Getenv("STATIC_STORAGE_TEMPLATE"), mediaRecord.Link)
+
 	helpers.HandleResponse(ctx, w, mediaRecord)
 }
 

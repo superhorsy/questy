@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/v1/media/:id",
-      "destination": "/api/v1/media/get.go"
+      "destination": "/api/v1/media.go"
     },
     {
       "source": "/api/v1/quests/:id",

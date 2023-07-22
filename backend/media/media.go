@@ -22,20 +22,17 @@ func New(rs *store.RecordStore, fs storage.Storage) *Media {
 
 func (m Media) UploadFile(ctx context.Context, file multipart.File, filename string, mediaType model.MediaType) (*model.MediaRecord, error) {
 	record := &model.MediaRecord{
-		Storage: "s3",
-		Type:    mediaType,
+		Storage:  "s3",
+		Type:     mediaType,
+		Filename: filename,
 	}
 
-	id, err := m.storage.Upload(file, filename)
+	link, err := m.storage.Upload(file, filename)
 	if err != nil {
 		return nil, err
 	}
 
-	record.Filename = id
-	record.Filename, err = m.storage.GetLink(id)
-	if err != nil {
-		return nil, err
-	}
+	record.Link = link
 
 	record, err = m.recordStore.InsertMedia(ctx, record)
 	if err != nil {
