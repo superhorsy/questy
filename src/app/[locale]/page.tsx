@@ -15,10 +15,10 @@ import SmallQuestionMobile from "@images/intro/question_sm_mobile.png";
 import Smile from "@images/intro/smile.png";
 import SmileMobile from "@images/intro/smile_mobile.png";
 import styles from "./intro.module.scss";
-import {useTranslations} from 'next-intl';
+import {getTranslator} from "next-intl/server";
 
-const Intro = () => {
-    const t = useTranslations("home");
+const Intro = async ({params}) => {
+    const t = await getTranslator(params.locale, "home")
     const tasks = [
         t("intro_task1"),
         t("intro_task2"),

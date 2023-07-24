@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getInitQuest, getStatusQuest, getNextQuest } from "../actions/actions";
-import { questStatuses } from "../../constants/constants";
+import { getInitQuest, getStatusQuest, getNextQuest } from "@actions/actions";
+import { questStatuses } from "@/constants/constants";
 
 const initialState = {
   current: {}, // Текущий шаг квеста
@@ -93,9 +93,7 @@ export const questExecutionSlice = createSlice({
           ? "Вы ответили верно!"
           : "Ответ неверный, попробуйте снова",
         visible:
-          action.payload.data.quest_status !== questStatuses.IN_PROGRESS
-            ? false
-            : true,
+          action.payload.data.quest_status === questStatuses.IN_PROGRESS,
       };
       state.current = action.payload.data.current;
       state.questStatus = action.payload.data.quest_status;

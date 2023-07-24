@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -22,7 +23,7 @@
     "eslint-config-next": "13.4.3",
     "html5-qrcode": "^2.3.8",
     "next": "13.4.3",
-    "next-intl": "^2.15.0-beta.4",
+    "next-intl": "^3.0.0-beta.9",
     "qrcode": "^1.5.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -32,6 +33,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/node": "20.4.4",
     "sass": "^1.62.1"
   }
 }

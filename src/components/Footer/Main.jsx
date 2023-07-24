@@ -9,8 +9,6 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import React from "react";
 import {useTranslations} from 'next-intl';
 
-;
-
 export const MainFooter = () => {
   const t = useTranslations("common");
   return (
