@@ -47,9 +47,7 @@ export const ModalRestorePass = (children) => {
   const handleSubmitEditPassword =  (event) => {
     event.preventDefault();
     const newProfileDataWithPassword = {
-      first_name: profile.first_name,
-      last_name: profile.last_name,
-      nickname: profile.nickname,
+      name: profile.nickname,
       email: profile.email,
       password: passForm.newPassword
     }

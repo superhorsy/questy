@@ -1,4 +1,4 @@
-import { login, registration } from "../actions/actions";
+import { login, registration } from "@actions/actions";
 
 import { createSlice } from "@reduxjs/toolkit";
 

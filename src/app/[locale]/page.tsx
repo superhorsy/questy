@@ -5,7 +5,7 @@ import EmodjiMobile from "@images/intro/emodji_mobile.png";
 import Image from 'next/image';
 import Lamp from "@images/intro/lamp.png";
 import LampMobile from "@images/intro/lamp_mobile.png";
-import {LoginForm} from "@components/LoginForm/loginForm";
+import Auth from "@components/Auth/Auth";
 import LogoLight from "@images/intro/logo-light.png";
 import LogoMobile from "@images/intro/logo_mobile.png";
 import Question from "@images/intro/question.png";
@@ -173,7 +173,7 @@ const Intro = async ({params}) => {
                         <div className={styles.list}>{renderSteps()}</div>
                     </div>
                     <div className={styles.intro__right}>
-                        <LoginForm/>
+                        <Auth/>
                     </div>
                 </div>
             </div>

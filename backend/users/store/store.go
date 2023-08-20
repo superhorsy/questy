@@ -70,8 +70,8 @@ func (s *Store) InsertUser(ctx context.Context, u *model.UserWithPass) (*model.U
 
 	res, err := s.db.NamedQueryContext(ctx,
 		`INSERT INTO 
-		users(first_name, last_name, nickname, password, email, created_at, updated_at) 
-		VALUES (:first_name, :last_name, :nickname, :password, :email, :created_at, :updated_at) 
+		users(nickname, password, email, created_at, updated_at) 
+		VALUES (:nickname, :password, :email, :created_at, :updated_at) 
 		RETURNING *`, u)
 	if err = checkWriteError(err); err != nil {
 		return nil, err
@@ -138,8 +138,6 @@ func (s *Store) UpdateUser(ctx context.Context, u *model.UserWithPass) (*model.U
 	res, err := s.db.NamedQueryContext(ctx,
 		`UPDATE users 
 		SET 
-		first_name = COALESCE(:first_name, first_name), 
-		last_name = COALESCE(:last_name, last_name), 
 		nickname = COALESCE(:nickname, nickname), 
 		password = COALESCE(:password, password),
 		email = COALESCE(:email, email),
@@ -162,30 +160,6 @@ func (s *Store) UpdateUser(ctx context.Context, u *model.UserWithPass) (*model.U
 	}
 
 	return updatedUser, nil
-}
-
-// DeleteUser will delete an existing user via their ID.
-func (s *Store) DeleteUser(ctx context.Context, id string) error {
-	res, err := s.db.ExecContext(ctx, "DELETE FROM users WHERE id = $1", id)
-	if err != nil {
-		var pqErr *pq.Error
-		if errors.As(err, &pqErr) {
-			if pqErr.Code.Name() == pqErrInvalidTextRepresentation && strings.Contains(pqErr.Error(), "uuid") {
-				return ErrInvalidID.Wrap(errors.ErrValidation.Wrap(err))
-			}
-		}
-
-		return errors.ErrUnknown.Wrap(err)
-	}
-	rows, err := res.RowsAffected()
-	if err != nil {
-		return errors.ErrUnknown.Wrap(err)
-	}
-	if rows != 1 {
-		return ErrUserNotDeleted.Wrap(errors.ErrNotFound)
-	}
-
-	return nil
 }
 
 //nolint:cyclop

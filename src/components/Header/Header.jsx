@@ -137,8 +137,7 @@ export const Header = () => {
                 <>
                   <Box component="span" sx={{ display: { xs: "none", sm: "inline-block" } }}>
                     {t("hello")},
-                    {" " + profile?.first_name[0].toUpperCase() +
-                      profile?.first_name.slice(1)}
+                    {" " + profile?.nickname}
                     👋🏻
                   </Box>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, ml: 2 }}>
@@ -151,8 +150,7 @@ export const Header = () => {
                         backgroundColor: "header.avatarBg",
                       }}
                     >
-                      {profile?.first_name[0].toUpperCase()}
-                      {profile?.last_name[0].toUpperCase()}
+                      {profile?.nickname[0].toUpperCase()}
                     </Avatar>
                   </IconButton>
                   <Menu

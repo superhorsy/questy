@@ -331,7 +331,7 @@ func (s *Store) GetQuestsAvailable(ctx context.Context, email string, offset int
        qe.current_step as steps_current,
        CASE when s.steps_count is NULL THEN 0 ELSE s.steps_count END AS steps_count,
        u.id                                   as "owner.id",
-       concat(u.first_name, ' ', u.last_name) as "owner.name"
+       u.nickname as "owner.name"
 FROM quests q
          JOIN quest_to_email qe ON qe.quest_id = q.id
          JOIN users u ON q.owner = u.id

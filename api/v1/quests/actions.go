@@ -131,7 +131,7 @@ func actions(w http.ResponseWriter, r *http.Request) {
 					URL:  "https://questy.fun",
 					IMG:  "https://questy.fun/files/10d26a38-2fdf-4f48-adff-3e052e7466f5.png",
 				}
-				subject := fmt.Sprintf("Ваш друг %s отправил вам квест на Questy.fun!", user.FullName())
+				subject := fmt.Sprintf("Ваш друг %s отправил вам квест на Questy.fun!", *user.Name)
 				err := helpers.SendEmail(sendRequest.Email, subject, "config/quest_invite.gohtml", templateData)
 				if err != nil {
 					logging.From(ctx).Error("failed to send email", zap.Error(err))

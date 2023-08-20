@@ -1,9 +1,8 @@
 package handler
 
 import (
-	"context"
 	"encoding/json"
-	"github.com/superhorsy/quest-app-frontend/backend/config"
+	"github.com/jmoiron/sqlx"
 	"github.com/superhorsy/quest-app-frontend/backend/core/errors"
 	"github.com/superhorsy/quest-app-frontend/backend/core/helpers"
 	"github.com/superhorsy/quest-app-frontend/backend/core/logging"
@@ -14,6 +13,7 @@ import (
 	"go.uber.org/zap"
 	"io"
 	"net/http"
+	"os"
 )
 
 func Register(w http.ResponseWriter, r *http.Request) {
@@ -22,26 +22,15 @@ func Register(w http.ResponseWriter, r *http.Request) {
 
 func register(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
-
-	cfg, err := config.Load(ctx)
-	if err != nil {
-		logging.From(ctx).Error("failed to load config", zap.Error(err))
-		helpers.HandleError(ctx, w, err)
-		return
-	}
-	ctx = context.WithValue(ctx, "config", &cfg.AppConfig)
-
-	// Connect to the DB
-	db, err := helpers.InitDatabase(ctx, cfg)
+	db, err := sqlx.Connect("postgres", os.Getenv("DSN"))
 	if err != nil {
 		logging.From(ctx).Error("failed to init db", zap.Error(err))
 		helpers.HandleError(ctx, w, err)
 		return
 	}
+	defer db.Close()
 
-	defer db.Close(ctx)
-
-	us := store.New(db.GetDB())
+	us := store.New(db)
 	u := users.New(us)
 
 	data, err := io.ReadAll(r.Body)
@@ -60,7 +49,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 	err = model.Validate(
 		[]model.Validation{
-			//{Value: f.Nickname, Valid: "username", Error: errors.New("Username can contain only numbers and english letters")},
+			//{Value: f.Name, Valid: "username", Error: errors.New("Username can contain only numbers and english letters")},
 			{Value: f.Email, Valid: "email", Error: errors.New("Invalid email")},
 			//{Value: f.Password, Valid: "password", Error: errors.New("Password should be at least 5 letters long")},
 		})
